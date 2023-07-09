@@ -16,6 +16,10 @@ export default function Cart() {
     const cartStore = useCartStore()
     console.log(cartStore.isOpen);
 
+    const cartTotal = cartStore.cart.reduce((acc, item) => {
+        return acc + item.unit_amount! * item.quantity!;
+    }, 0)
+
     return (
         <div
             onClick={() => cartStore.toggleCart()}
@@ -53,13 +57,14 @@ export default function Cart() {
                                 </button>
                             </div>
                             <p className="text-sm">{item.unit_amount && formatPrice(item.unit_amount)}</p>
-
                         </div>
-
                     </div>
                 ))}
                 {cartStore.cart.length > 0 ? (
-                    <button className="text-white py-2 mt-4 bg-teal-700 rounded-md w-full">Checkout</button>
+                    <>
+                        <p className="text-right" >Total: {formatPrice(cartTotal)}</p>
+                        <button className="text-white py-2 mt-4 bg-teal-700 rounded-md w-full">Checkout</button>
+                    </>
                 ) : (
                     <div className="flex flex-col items-center gap-12 text-2xl font-medium pt-56 opacity-75">
                         <h1>Uhh... It's lonely here 😥</h1>
@@ -67,7 +72,7 @@ export default function Cart() {
 
                     </div>
                 )
-            }
+                }
             </div>
 
         </div>
