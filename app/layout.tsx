@@ -23,7 +23,7 @@ export default async function RootLayout({
   console.log(session)
   return (
     <html lang="en">
-      <body className={`${roboto.className} my-4 mx-16`}>
+      <body className={`${roboto.className} my-4 mx-16 lg:mx-32`}>
         <Hydrate >
           <Nav user={session?.user} expires={session?.expires as string} />
           {children}

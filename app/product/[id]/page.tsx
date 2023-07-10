@@ -4,7 +4,7 @@ import AddCart from "./AddCart"
 
 export default function page({ searchParams }: SearchParamTypes) {
     return (
-        <div className="flex justify-between gap-24 p-12 text-gray-700">
+        <div className="flex flex-col lg:flex-row  justify-between gap-12 lg:gap-24 p-12 text-gray-700">
             <Image
                 src={searchParams.image}
                 alt={searchParams.name}
