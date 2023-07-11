@@ -4,13 +4,13 @@ import AddCart from "./AddCart"
 
 export default function page({ searchParams }: SearchParamTypes) {
     return (
-        <div className="flex flex-col lg:flex-row  justify-between gap-12 lg:gap-24 p-12 text-gray-700">
+        <div className="flex flex-col lg:flex-row items-center gap-12 text-gray-700">
             <Image
                 src={searchParams.image}
                 alt={searchParams.name}
                 width={800}
                 height={800}
-                className="rounded-lg h-[30rem] w-[30rem] object-cover"
+                className="rounded-lg max-h-[30rem] max-w-[30rem] object-cover"
             />
             <div className="description text-gray-700">
                 <h1 className="text-2xl py-2">{searchParams.name}</h1>
