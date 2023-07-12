@@ -21,6 +21,7 @@ export default function Cart() {
     }, 0)
 
     return (
+        // Cart
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -29,7 +30,12 @@ export default function Cart() {
             className="fixed w-full h-screen left-0 top-0 bg-black/25"
         >
             <div onClick={(e) => e.stopPropagation()} className="bg-white absolute right-0 top-0 h-screen p-12 overflow-scroll w-full lg:w-2/5 ">
-                <button onClick={() => cartStore.toggleCart()} className="pb-4 text-sm font-bold" >back to store </button>
+                {cartStore.onCheckout === 'cart' && (
+                    <button onClick={() => cartStore.toggleCart()} className="pb-4 text-sm font-bold" >back to store</button>
+                )}
+                {cartStore.onCheckout === 'checkout' && (
+                    <button onClick={() => cartStore.setCheckout('cart')} className="pb-4 text-sm font-bold" >back to cart </button>
+                )}
                 {cartStore.onCheckout === 'checkout' && <Checkout />}
                 {cartStore.onCheckout === 'cart' &&
                     <>
@@ -67,7 +73,7 @@ export default function Cart() {
                         ))}
                     </>
                 }
-                {cartStore.cart.length > 0 ? (
+                {cartStore.cart.length > 0 ? cartStore.onCheckout === 'cart' ? (
                     <motion.div layout>
                         <p className="text-right" >Total: {formatPrice(cartTotal)}</p>
                         <button onClick={() => cartStore.setCheckout('checkout')}
@@ -75,7 +81,7 @@ export default function Cart() {
                             Checkout
                         </button>
                     </motion.div>
-                ) : (
+                ) : null : (
                     <AnimatePresence>
                         <motion.div className="flex flex-col items-center gap-12 text-2xl font-medium pt-56 opacity-75"
                             initial={{ scale: 0.5, opacity: 0, rotateZ: -10 }}
