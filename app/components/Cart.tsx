@@ -12,6 +12,7 @@ import {
 import basket from '@/public/wicker-basket.png'
 import React from 'react'
 import Checkout from "./Checkout"
+import OrderConfirmed from "./OrderConfirmed"
 
 export default function Cart() {
     const cartStore = useCartStore()
@@ -37,6 +38,7 @@ export default function Cart() {
                     <button onClick={() => cartStore.setCheckout('cart')} className="pb-4 text-sm font-bold" >back to cart </button>
                 )}
                 {cartStore.onCheckout === 'checkout' && <Checkout />}
+                {cartStore.onCheckout === 'success' && <OrderConfirmed />}
                 {cartStore.onCheckout === 'cart' &&
                     <>
                         {cartStore.cart.map((item) => (
@@ -81,7 +83,7 @@ export default function Cart() {
                             Checkout
                         </button>
                     </motion.div>
-                ) : null : (
+                ) : null : cartStore.onCheckout === 'cart' && (
                     <AnimatePresence>
                         <motion.div className="flex flex-col items-center gap-12 text-2xl font-medium pt-56 opacity-75"
                             initial={{ scale: 0.5, opacity: 0, rotateZ: -10 }}
