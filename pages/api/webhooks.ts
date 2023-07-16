@@ -38,7 +38,7 @@ export default async function handler(
     // Handle different events
 
     switch (event?.type) {
-      case "payment_intent.succeeded":
+      case "payment_intent.created":
         const payment_intent = event.data.object;
         console.log("payment intent was created: ");
         break;
