@@ -2,7 +2,7 @@
 
 import { useCartStore } from '@/store'
 import { Session } from 'next-auth'
-import { signIn } from 'next-auth/react'
+import { signIn, signOut } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Cart from './Cart'
@@ -27,7 +27,7 @@ export default function Nav({ user }: Session) {
                                 animate={{ scale: 1 }}
                                 initial={{ scale: 0 }}
                                 exit={{ scale: 0 }}
-                                className='bg-teal-700 text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center'
+                                className='bg-primary text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center'
                             >
                                 {cartStore.cart.length}
                             </motion.span>
@@ -35,26 +35,49 @@ export default function Nav({ user }: Session) {
                     </AnimatePresence>
                 </li>
                 {!user && (
-                    <li className='bg-teal-600 text-white py02 px-2 rounded-md'>
+                    <li className='bg-primary text-white py-2 px-4 rounded-md'>
                         <button onClick={() => signIn()} >Sign in</button>
 
                     </li>
                 )}
                 {user && (
-                    <Link href={'/dashboard'} >
-                        <li>
+
+                    <li>
+                        <div className='dropdown dropdown-end cursor-pointer'>
                             <Image
                                 src={user?.image as string}
                                 width={40} height={40}
                                 alt="user image"
-                                className='rounded-full' />
-                        </li>
+                                className='rounded-full'
+                                tabIndex={0}
+                            />
+                            <ul tabIndex={0} className='dropdown-content menu p-4 space-y-2 shadow bg-base-100 rounded-box w-72'>
+                                <Link className='hover:bg-base-300 p-4 rounded-md' href={'/dashboard'}
+                                    onClick={hideDropDown}
+                                >
+                                    Orders
+                                </Link>
+                                <li className='hover:bg-base-300 p-4 rounded-md'
+                                    onClick={() => {
+                                        hideDropDown()
+                                        signOut()
+                                    }}>
+                                    Sign out
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
-                    </Link>
                 )}
             </ul>
             <AnimatePresence>{cartStore.isOpen && <Cart />}</AnimatePresence>
         </nav>
     )
 
+}
+
+const hideDropDown = () => {
+    if (document.activeElement instanceof (HTMLElement)) {
+        document.activeElement.blur()
+    }
 }

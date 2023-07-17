@@ -32,10 +32,9 @@ export default async function Dashboard() {
   if (orders.length === 0) return (<div>No orders placed.</div>)
   return (
     <div>
-      <h1>Your Orders</h1>
-      <div >
+      <div>
         {orders.map((order) => (
-          <div key={order.id} className="rounded-lg p-8 my-12">
+          <div key={order.id} className="rounded-lg p-8 my-4 space-y-2 bg-base-200">
             <h2 className="text-xs font-medium">Order reference: {order.id}</h2>
             <p className="text-xs my-2">Status:
               <span className={`${order.status === 'complete' ? 'bg-teal-500' : 'bg-yellow-500'} 

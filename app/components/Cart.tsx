@@ -79,7 +79,7 @@ export default function Cart() {
                     <motion.div layout>
                         <p className="text-right" >Total: {formatPrice(cartTotal)}</p>
                         <button onClick={() => cartStore.setCheckout('checkout')}
-                            className="text-white py-2 mt-4 bg-teal-700 rounded-md w-full">
+                            className="text-white py-2 mt-4 bg-primary rounded-md w-full">
                             Checkout
                         </button>
                     </motion.div>
