@@ -8,6 +8,7 @@ import Link from 'next/link'
 import Cart from './Cart'
 import { AiFillShopping } from 'react-icons/ai'
 import { AnimatePresence, motion } from 'framer-motion';
+import DarkLight from './DarkLight'
 
 export default function Nav({ user }: Session) {
 
@@ -18,7 +19,7 @@ export default function Nav({ user }: Session) {
             <Link href={'/'} >
                 <h1>My Shop</h1>
             </Link>
-            <ul className='flex items-center gap-12'>
+            <ul className='flex items-center gap-8'>
                 <li onClick={() => cartStore.toggleCart()} className='flex items-center text-3xl relative cursor-pointer'>
                     <AiFillShopping />
                     <AnimatePresence>
@@ -34,6 +35,7 @@ export default function Nav({ user }: Session) {
                         )}
                     </AnimatePresence>
                 </li>
+                <DarkLight />
                 {!user && (
                     <li className='bg-primary text-white py-2 px-4 rounded-md'>
                         <button onClick={() => signIn()} >Sign in</button>
