@@ -16,7 +16,7 @@ export default function Nav({ user }: Session) {
 
     return (
         <nav className='flex justify-between items-center py-12'>
-            <Link href={'/'} >
+            <Link className='font-lobster text-2xl' href={'/'} >
                 <h1>My Shop</h1>
             </Link>
             <ul className='flex items-center gap-8'>
@@ -35,7 +35,7 @@ export default function Nav({ user }: Session) {
                         )}
                     </AnimatePresence>
                 </li>
-                <DarkLight />
+                <DarkLight /> 
                 {!user && (
                     <li className='bg-primary text-white py-2 px-4 rounded-md'>
                         <button onClick={() => signIn()} >Sign in</button>

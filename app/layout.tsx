@@ -1,12 +1,13 @@
 import Nav from './components/Nav'
 import './globals.css'
-import { Inter, Roboto } from 'next/font/google'
+import { Inter, Roboto, Lobster_Two } from 'next/font/google'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import Hydrate from './components/Hydrate'
 
 const inter = Inter({ subsets: ['latin'] })
-const roboto = Roboto( { weight: ['400', '500', '700'], subsets: ['latin'] })
+const roboto = Roboto({ weight: ['400', '500', '700'], subsets: ['latin'], variable: '--font-roboto' })
+const lobster = Lobster_Two({ weight: "700" , subsets: ['latin'], variable: '--font-lobster'}, )
 
 export const metadata = {
   title: 'My Shop',
@@ -21,13 +22,11 @@ export default async function RootLayout({
 }) {
   const session = await getServerSession(authOptions)
   return (
-    <html lang="en" data-theme={'light'}>
-      <body className={`${roboto.className} my-4 mx-16 lg:mx-32`}>
-        <Hydrate >
-          <Nav user={session?.user} expires={session?.expires as string} />
-          {children}
-        </Hydrate>
-      </body>
+    <html className={`${roboto.variable} ${lobster.variable}`} lang="en" >
+      <Hydrate >
+        <Nav user={session?.user} expires={session?.expires as string} />
+        {children}
+      </Hydrate>
     </html>
   )
 }
