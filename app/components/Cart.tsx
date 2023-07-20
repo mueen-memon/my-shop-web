@@ -30,7 +30,7 @@ export default function Cart() {
             onClick={() => cartStore.toggleCart()}
             className="fixed w-full h-screen left-0 top-0 bg-black/25"
         >
-            <div onClick={(e) => e.stopPropagation()} className="bg-base-200 absolute right-0 top-0 h-screen p-12 overflow-scroll w-full lg:w-2/5 ">
+            <div onClick={(e) => e.stopPropagation()} className="bg-base-200 absolute right-0 top-0 h-screen p-6 lg:p-12 overflow-scroll w-full lg:w-2/5 ">
                 {cartStore.onCheckout === 'cart' && (
                     <button onClick={() => cartStore.toggleCart()} className="pb-4 text-sm font-bold" >back to store</button>
                 )}
@@ -42,9 +42,9 @@ export default function Cart() {
                 {cartStore.onCheckout === 'cart' &&
                     <>
                         {cartStore.cart.map((item) => (
-                            <motion.div layout key={item.id} className="flex p-4 my-4 rounded-lg gap-4 bg-base-100 ">
+                            <motion.div layout key={item.id} className="flex p-4  my-4 rounded-lg gap-4 bg-base-100 ">
                                 <Image
-                                    className="rounded-md h-24 object-cover"
+                                    className="rounded-md object-cover h-24 w-24 "
                                     src={item.image} alt="item.name" width={120} height={120} />
                                 <div>
                                     <h2>{item.name}</h2>
