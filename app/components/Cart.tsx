@@ -90,7 +90,7 @@ export default function Cart() {
                             animate={{ scale: 1, opacity: 0.75, rotateZ: 0 }}
                             exit={{ scale: 0.5, opacity: 0, rotateZ: -10 }}
                         >
-                            <h1>Uhh... It's lonely here 😥</h1>
+                            <h1>Uhh... It&apos;s lonely here 😥</h1>
                             <Image src={basket} alt="empty cart" width={200} height={200} />
 
                         </motion.div>

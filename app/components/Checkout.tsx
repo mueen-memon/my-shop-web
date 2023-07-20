@@ -42,6 +42,7 @@ export default function Checkout() {
             setClientSecret(data.paymentIntent.client_secret)
             cartStore.setPaymentIntent(data.paymentIntent.id)
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const options: StripeElementsOptions = {

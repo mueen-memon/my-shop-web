@@ -20,6 +20,7 @@ export default function CheckoutForm({ clientSecret }: { clientSecret: string })
             return
         if (!clientSecret)
             return
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stripe]);
 
     const handleSubmit = async (e: React.FormEvent) => {
