@@ -10,6 +10,7 @@ export default function page({ searchParams }: SearchParamTypes) {
                 alt={searchParams.name}
                 width={800}
                 height={800}
+                priority={true}
                 className="rounded-lg max-h-[30rem] max-w-[30rem] object-cover"
             />
             <div className="font-medium">

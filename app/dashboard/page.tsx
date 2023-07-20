@@ -1,14 +1,11 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { formatPrice } from "@/util/PriceFormat";
-import { PrismaClient } from "@prisma/client";
-import { NextApiRequest, NextApiResponse } from "next";
+import { prisma } from "@/util/prisma";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 
 export const revalidate = 0;
-
 const fetchOrders = async () => {
-  const prisma = new PrismaClient();
   const user = await getServerSession(authOptions);
   if (!user)
     return null;
@@ -54,7 +51,8 @@ export default async function Dashboard() {
                       alt={product.name}
                       width={36}
                       height={36}
-                      className="rounded-md object-cover h-8"
+                      priority={true}
+                      className="rounded-md object-cover h-8 w-8"
                     />
                     <p>{formatPrice(product.unit_amount)}</p>
                     <p>Quantity: {product.quantity}</p>

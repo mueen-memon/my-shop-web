@@ -15,6 +15,7 @@ export default function Product({ name, image, unit_amount, description, metadat
                     height={800}
                     alt={name}
                     className='w-full h-80 object-cover rounded-lg'
+                    priority={true}
                 />
                 <div className='font-medium py-2'>
                     <h1>{name}</h1>
