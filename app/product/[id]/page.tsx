@@ -3,6 +3,8 @@ import Image from "next/image"
 import AddCart from "./AddCart"
 
 export default function page({ searchParams }: SearchParamTypes) {
+    console.log('serchParams in product page', searchParams);
+    
     return (
         <div className="flex flex-col lg:flex-row items-center gap-12">
             <Image

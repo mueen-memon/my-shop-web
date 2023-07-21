@@ -7,6 +7,8 @@ export default function AddCart({ id, name, image, unit_amount, quantity }: AddC
     const cartStore = useCartStore();
     const [added, setAdded] = useState(false);
 
+    console.log('content in add to cart', id, name, );
+
     const handleAddToCart = () => {
         cartStore.addProduct({ id, name, image, unit_amount, quantity })
         setAdded(true);
