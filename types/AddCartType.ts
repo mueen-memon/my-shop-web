@@ -1,4 +1,4 @@
-type AddCartType = {
+export type AddCartType = {
     id: string
     name: string,
     image: string,

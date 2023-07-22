@@ -1,6 +1,7 @@
 'use client'
 
 import { useCartStore } from "@/store"
+import { AddCartType } from "@/types/AddCartType";
 import { useState } from "react";
 
 export default function AddCart({ id, name, image, unit_amount, quantity }: AddCartType) {
@@ -20,6 +21,7 @@ export default function AddCart({ id, name, image, unit_amount, quantity }: AddC
     return (
         <>
             <button
+                id="add-to-cart-btn"
                 onClick={handleAddToCart}
                 disabled={added}
                 className="my-4 btn btn-primary w-full lg:max-w-lg md:max-w-lg">

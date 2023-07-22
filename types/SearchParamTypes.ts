@@ -7,11 +7,11 @@ type SearchParams = {
     name: string,
     image: string,
     unit_amount: number | null,
-    description: string,
+    description: string | null,
     features: string
 }
 
-type SearchParamTypes = {
+export type SearchParamTypes = {
     params: Params,
     searchParams: SearchParams
 }

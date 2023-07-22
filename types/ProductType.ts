@@ -1,7 +1,7 @@
-type ProductType = {
+export type ProductType = {
     id: string
     name: string,
-    description: string,
+    description: string | null,
     image: string,
     unit_amount: number | null,
     quantity?: number | 1,

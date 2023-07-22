@@ -1,8 +1,9 @@
 import { formatPrice } from "@/util/PriceFormat"
 import Image from "next/image"
 import AddCart from "./AddCart"
+import { SearchParamTypes } from "@/types/SearchParamTypes";
 
-export default function page({ searchParams }: SearchParamTypes) {
+export default function Product({ searchParams }: SearchParamTypes) {
     console.log('serchParams in product page', searchParams);
     
     return (
