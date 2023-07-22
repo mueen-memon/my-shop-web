@@ -18,6 +18,7 @@ export default function Product({ searchParams }: SearchParamTypes) {
             />
             <div className="font-medium">
                 <h1 className="text-2xl py-2">{searchParams.name}</h1>
+                <p className="text-sm">{searchParams.id}</p>
                 <p className="py-2">{searchParams.description}</p>
 
                 {searchParams.features != '' &&

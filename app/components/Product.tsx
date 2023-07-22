@@ -1,3 +1,4 @@
+import { ProductType } from '@/types/ProductType';
 import { formatPrice } from '@/util/PriceFormat';
 import Image from 'next/image';
 import Link from 'next/link';
