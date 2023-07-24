@@ -5,17 +5,13 @@ import { AddCartType } from "@/types/AddCartType";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-export default function AddCart({pid, searchParams}: {pid: string, searchParams: AddCartType}) {
+export default function AddCart({ name, image, unit_amount, quantity }: AddCartType) {
+
     const cartStore = useCartStore();
-    const [added, setAdded] = useState(false);
-    const { id, name, image, unit_amount, quantity } = searchParams;
-
     const searchParamsData = useSearchParams();
-    console.log('pid', searchParamsData?.get('id'));
-
-
-
-    console.log('content in add to cart', id, name, pid );
+    const [added, setAdded] = useState(false);
+    
+    const id = searchParamsData?.get('id') as string;
 
     const handleAddToCart = () => {
         cartStore.addProduct({ id, name, image, unit_amount, quantity })

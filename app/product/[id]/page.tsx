@@ -4,7 +4,6 @@ import AddCart from "./AddCart"
 import { SearchParamTypes } from "@/types/SearchParamTypes";
 
 export default function Product({ searchParams, params}: SearchParamTypes) {
-    console.log('serchParams in product page', searchParams, params.id);
     
     return (
         <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -27,7 +26,7 @@ export default function Product({ searchParams, params}: SearchParamTypes) {
                 <div className="flex gap-2">
                     <p className="font-bold text-primary">{searchParams.unit_amount && formatPrice(searchParams.unit_amount)}</p>
                 </div>
-                <AddCart searchParams={searchParams} pid={params.id}/>
+                <AddCart {...searchParams}/>
             </div>
         </div>
     )

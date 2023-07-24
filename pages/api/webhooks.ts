@@ -38,7 +38,6 @@ export default async function handler(
     switch (event?.type) {
       case "payment_intent.created":
         const payment_intent = event.data.object;
-        console.log("payment intent was created: ");
         break;
       case "charge.succeeded":
         const charge = event.data.object as Stripe.Charge;
