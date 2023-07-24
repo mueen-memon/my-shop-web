@@ -3,8 +3,8 @@ import Image from "next/image"
 import AddCart from "./AddCart"
 import { SearchParamTypes } from "@/types/SearchParamTypes";
 
-export default function Product({ searchParams }: SearchParamTypes) {
-    console.log('serchParams in product page', searchParams);
+export default function Product({ searchParams, params}: SearchParamTypes) {
+    console.log('serchParams in product page', searchParams, params.id);
     
     return (
         <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -18,7 +18,6 @@ export default function Product({ searchParams }: SearchParamTypes) {
             />
             <div className="font-medium">
                 <h1 className="text-2xl py-2">{searchParams.name}</h1>
-                <p className="text-sm">{searchParams.id}</p>
                 <p className="py-2">{searchParams.description}</p>
 
                 {searchParams.features != '' &&
@@ -28,7 +27,7 @@ export default function Product({ searchParams }: SearchParamTypes) {
                 <div className="flex gap-2">
                     <p className="font-bold text-primary">{searchParams.unit_amount && formatPrice(searchParams.unit_amount)}</p>
                 </div>
-                <AddCart {...searchParams}/>
+                <AddCart searchParams={searchParams} pid={params.id}/>
             </div>
         </div>
     )

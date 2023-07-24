@@ -4,12 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
-export default function Product({ name, image, unit_amount, description, metadata, id }: ProductType) {
+export default function Product({id, name, image, unit_amount, description, metadata  }: ProductType) {
 
     const { features } = metadata;
 
     return (
-        <Link href={{ pathname: `/product/${id}`, query: { name, image, unit_amount, description, features, id } }}>
+        <Link href={{ pathname: `/product/${id}`, query: {id, name, image, unit_amount, description, features} }}>
             <div >
                 <Image src={image}
                     width={800}

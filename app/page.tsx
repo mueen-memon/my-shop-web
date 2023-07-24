@@ -7,7 +7,7 @@ export default async function Home() {
   return (
     <main className='grid grid-cols-fluid gap-16' >
       {products.map((product) => (
-        <Product {...product} key={product.id}/>
+        <Product {...product} data-id={product.id} key={product.id}/>
       ))}
     </main>
   )
