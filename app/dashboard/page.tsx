@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import Image from "next/image";
 
 export const revalidate = 0;
+
 const fetchOrders = async () => {
   const user = await getServerSession(authOptions);
   if (!user)
@@ -16,6 +17,9 @@ const fetchOrders = async () => {
     },
     include: {
       products: true
+    },
+    orderBy: {
+      createdAt: 'desc'
     }
 
   })

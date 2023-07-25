@@ -7,7 +7,7 @@ import Hydrate from './components/Hydrate'
 
 const inter = Inter({ subsets: ['latin'] })
 const roboto = Roboto({ weight: ['400', '500', '700'], subsets: ['latin'], variable: '--font-roboto' })
-const lobster = Lobster_Two({ weight: "700" , subsets: ['latin'], variable: '--font-lobster'}, )
+const lobster = Lobster_Two({ weight: "700", subsets: ['latin'], variable: '--font-lobster' },)
 
 export const metadata = {
   title: 'My Shop',

@@ -6,14 +6,14 @@ import { SearchParamTypes } from "@/types/SearchParamTypes";
 export default function Product({ searchParams, params}: SearchParamTypes) {
     
     return (
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <Image
                 src={searchParams.image}
                 alt={searchParams.name}
                 width={800}
                 height={800}
                 priority={true}
-                className="rounded-lg max-h-[30rem] max-w-[30rem] object-cover"
+                className="rounded-lg h-[18rem] lg:h-[25rem] max-h-[25rem] w-full sm:max-w-[15rem] lg:max-w-[25rem]  object-cover"
             />
             <div className="font-medium">
                 <h1 className="text-2xl py-2">{searchParams.name}</h1>
