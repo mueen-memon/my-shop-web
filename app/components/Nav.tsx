@@ -15,7 +15,7 @@ export default function Nav({ user }: Session) {
     const cartStore = useCartStore()
 
     return (
-        <nav className='sticky top-0 flex justify-between items-center py-4 lg:py-12  bg-base-100'>
+        <nav className='sticky top-0 flex justify-between items-center py-6 lg:py-12  bg-base-100'>
             <Link className='font-lobster text-2xl' href={'/'} >
                 <h1>My Shop</h1>
             </Link>
