@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import Stripe from "stripe";
 import { authOptions } from "./auth/[...nextauth]";
 import { prisma } from "@/util/prisma";
+import { AddCartType } from "@/types/AddCartType";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: "2022-11-15",
@@ -33,7 +34,7 @@ export default async function handler(
     status: "pending",
     paymentIntentID: payment_intent_id,
     products: {
-      create: items.map((item) => ({
+      create: items.map((item: any) => ({
         name: item.name,
         description: item.description || null,
         unit_amount: parseFloat(item.unit_amount),

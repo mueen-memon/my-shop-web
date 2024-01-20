@@ -13,7 +13,7 @@ const fetchOrders = async () => {
   const orders = await prisma.order.findMany({
     where: {
       userId: user?.user?.id,
-      status: 'complete'
+      // status: 'complete'
     },
     include: {
       products: true
@@ -62,7 +62,7 @@ export default async function Dashboard() {
                     <p>{formatPrice(product.unit_amount)}</p>
                     <p>Quantity: {product.quantity}</p>
                   </div>
-                </div> 
+                </div>
               ))}
             </div>
             <p> Total: {formatPrice(order.amount)}</p>

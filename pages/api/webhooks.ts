@@ -34,7 +34,7 @@ export default async function handler(
     );
 
     // Handle different events
-
+    console.log("event here", { event }, event?.type);
     switch (event?.type) {
       case "payment_intent.created":
         const payment_intent = event.data.object;
@@ -54,7 +54,6 @@ export default async function handler(
         console.log(`Unhandled event type: ${event.type}`);
     }
     res.json({ received: true });
-  
   } catch (error) {
     return res.status(400).send(`Webhook error: ${error.message}`);
   }
